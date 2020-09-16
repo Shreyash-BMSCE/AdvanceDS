@@ -26,22 +26,24 @@ node *rev(node *head,int k)
     return prev; 
 }
 
-node *push(node *head, int data)
+ node *push(node *head, int newdata)
 {
-    if(head==NULL)
+   /*  if(head==NULL)
     {
-        head->data = data;
+        head->data = newdata;
+        head->next = NULL;
         return head;
     }
-    node *Node = head;
-    node *newnode = new node();
-    newnode->data = data;
-    newnode->next = NULL;
-    while(Node->next!= NULL)
-    Node = head->next;
-    head->next = newnode;
+    */
+    //node* Node = head;
+    node* newnode = new node();
+    newnode->data = newdata;
+    newnode->next = head;
+    // while(Node!= NULL)
+    // Node = Node->next;
+    head = newnode;
     return head;
-}
+} 
 
 void print(node *head)
 {
@@ -61,15 +63,16 @@ int main()
     while(1)
     {
         cin>>data;
-        head = push(head,data);
         if(data==0)
         break;
+        head = push(head,data);
+        
     }
-    cout<<"Enter k";
+    cout<<"Enter k: ";
     cin>>k;
     cout<<"the list is: ";
     print(head);
-    cout<<"the reversed list is:";
+    cout<<"\nthe reversed list is:";
     head = rev(head,k);
     print(head);
     return 0;
