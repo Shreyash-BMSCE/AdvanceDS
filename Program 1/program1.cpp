@@ -1,4 +1,5 @@
 #include<iostream>
+#include <inttypes.h> 
 //#include<stdio.h>
 using namespace std;
 
@@ -18,7 +19,7 @@ void insert(Node **head, int data)
     Node *new_node = new Node();
     new_node -> data = data;
     new_node->xnext = (*head);
-    if(*head != NULL)
+    if(*head)
     {
         (*head) -> xnext = XOR(new_node,(*head)->xnext);
     }
@@ -30,7 +31,7 @@ void insert_end(Node **head, int data)
     Node *new_node = new Node();
     new_node->data = data;
     new_node->xnext = NULL;
-    if(*head == NULL)
+    if(!(*head))
     {
         *head = new_node;
     }
@@ -38,14 +39,15 @@ void insert_end(Node **head, int data)
     {
         Node *curr = *head;
         Node *prev = NULL;
-        Node *next;
-        while(curr!=NULL)
+        Node *next = XOR(prev,curr->xnext);
+        while(next)
         {
-            next = XOR(prev,curr->xnext);
             prev = curr;
             curr = next;
+            next = XOR(prev,curr->xnext);
         }
-        curr = new_node;
+        new_node->xnext = XOR(curr,next);
+        curr->xnext = XOR(curr->xnext,new_node);
     }
 }
 
@@ -59,10 +61,12 @@ void print(Node *head)
     Node *curr = head;
     Node *prev = NULL;
     Node *next;
-    while(curr->xnext!= NULL)
+    while(curr)
     {
         cout<<curr->data<<" -> ";
-        curr = XOR(prev,curr->xnext);
+        next = XOR(prev,curr->xnext);
+        prev = curr;
+        curr = next;
     }
 }
 
@@ -72,7 +76,7 @@ int main()
     int ch=0,data;
     while(ch!=3)
     {
-        cout<<"1. Insert 2.Print 3. Exit ";
+        cout<<"\n 1. Insert front \n 2.Print \n 3. Exit \n 4. Insert End \t ";
         cin>>ch;
         if (ch==1)
         {
@@ -83,6 +87,12 @@ int main()
         else if(ch==2)
         {
             print(head);
+        }
+        else if(ch==4)
+        {
+            cout<<"\n Enter the data:";
+            cin>>data;
+            insert_end(&head,data);
         }
     }
     return 0;
