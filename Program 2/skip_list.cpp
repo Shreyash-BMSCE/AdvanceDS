@@ -11,10 +11,10 @@ class Node
 public: 
 	int key; 
 	Node **forward; 
-	Node(int key, int level) 
-	{ 
-		this->key = key; 
-		forward = new Node*[level+1];  
-		memset(forward, 0, sizeof(Node*)*(level+1)); 
-	}
-};
+
+
+
+
+
+
+
