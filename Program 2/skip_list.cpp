@@ -11,6 +11,9 @@ class Node
 public: 
 	int key; 
 	Node **forward; 
+	
+
+}
 
 
 
