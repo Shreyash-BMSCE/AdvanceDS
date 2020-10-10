@@ -2,8 +2,6 @@
  
 #include<iostream>
 #include<vector>
- 
- 
 class UnionFind
 { 
 	int n; 
@@ -17,17 +15,7 @@ class UnionFind
 		for (int i = 0; i < n; i++) 
 			par[i] = i;
 	}
-
-	int find(int x) 
-	{ 
-		if (par[x] != x) 
-		{ 
-			return find(par[x]); 
-		} 
-		return x; 
-	} 
- 
-	void Union(int x, int y) 
+    void Union(int x, int y) 
 	{ 
 		int a = find(x); 
 		int b = find(y); 
@@ -45,6 +33,14 @@ class UnionFind
 			par[b] = a; 
 			r[a] = r[a] + 1; 
 		} 
+	} 
+	int find(int x) 
+	{ 
+		if (par[x] != x) 
+		{ 
+			return find(par[x]); 
+		} 
+		return x; 
 	} 
 }; 
 
