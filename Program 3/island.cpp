@@ -100,9 +100,9 @@ int island(std::vector<std::vector<int>>a)
 int main(void) 
 { 
 	std::vector<std::vector<int>>a ={{1, 1, 0, 0, 0}, 
-                                    {0, 1, 0, 0, 1}, 
-                                    {1, 0, 0, 1, 1}, 
-                                    {0, 0, 0, 0, 0}, 
-                                    {1, 0, 1, 0, 1}}; 
+                                     {0, 1, 0, 0, 1}, 
+                                     {1, 0, 0, 1, 1}, 
+                                     {0, 0, 0, 1, 0}, 
+                                     {1, 0, 1, 0, 1}}; 
 	std::cout << "Number of Islands is: "<< island(a); 
 } 
