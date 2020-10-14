@@ -2,10 +2,13 @@
  
 #include<iostream>
 #include<vector>
+
+
+using namespace std;
 class UnionFind
 { 
 	int n; 
-	std::vector<int> r,par;
+	vector<int> r,par;
 	public: 
 	UnionFind(int n) 
 	{ 
@@ -15,7 +18,7 @@ class UnionFind
 		for (int i = 0; i < n; i++) 
 			par[i] = i;
 	}
-    void Union(int x, int y) 
+    void Union(int x, int y)
 	{ 
 		int a = find(x); 
 		int b = find(y); 
@@ -44,7 +47,7 @@ class UnionFind
 	} 
 }; 
 
-int island(std::vector<std::vector<int>>a) 
+int island(vector<vector<int>>a) 
 { 
 	int n = a.size(); 
 	int m = a[0].size(); 
@@ -87,7 +90,8 @@ int island(std::vector<std::vector<int>>a)
 				if (f[x] == 0) 
 				{ 
 					count++; 
-					f[x]++; 
+					f[x]++;
+					cout<<"here" ;
 				} 
 				else
 					f[x]++; 
@@ -99,10 +103,10 @@ int island(std::vector<std::vector<int>>a)
 
 int main(void) 
 { 
-	std::vector<std::vector<int>>a ={{1, 1, 0, 0, 0}, 
+	vector<vector<int>>a ={{1, 1, 0, 0, 0}, 
                                      {0, 1, 0, 0, 1}, 
                                      {1, 0, 0, 1, 1}, 
-                                     {0, 0, 0, 1, 0}, 
+                                     {0, 0, 0, 0, 0}, 
                                      {1, 0, 1, 0, 1}}; 
-	std::cout << "Number of Islands is: "<< island(a); 
+	cout << "Number of Islands is: "<< island(a); 
 } 
