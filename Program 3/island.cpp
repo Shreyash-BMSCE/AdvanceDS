@@ -57,7 +57,7 @@ int island(vector<vector<int>>a)
     { 
 		for (int k = 0; k < m; k++) 
 		{ 
-			if (a[j][k]) 
+			if (!a[j][k]) 
 				continue; 
             root = j * (m) + k;
 			if (j + 1 < n && a[j + 1][k])     //checking all 8 sides 
@@ -91,7 +91,7 @@ int island(vector<vector<int>>a)
 				{ 
 					count++; 
 					f[x]++;
-					cout<<"here" ;
+					//cout<<"here" ;
 				} 
 				else
 					f[x]++; 
@@ -103,10 +103,26 @@ int island(vector<vector<int>>a)
 
 int main(void) 
 { 
-	vector<vector<int>>a ={{1, 1, 0, 0, 0}, 
-                                     {0, 1, 0, 0, 1}, 
-                                     {1, 0, 0, 1, 1}, 
-                                     {0, 0, 0, 0, 0}, 
-                                     {1, 0, 1, 0, 1}}; 
+	vector<vector<int>>a; //={{1, 1, 0, 0, 0}, 
+    //                                  {0, 1, 0, 0, 1}, 
+    //                                  {1, 0, 0, 1, 1}, 
+    //                                  {0, 0, 0, 0, 0}, 
+    //                                  {1, 0, 1, 0, 1}}; 
+
+	int n,m,num;
+	cout<<"No of rows : ";
+	cin>>n;
+	cout<<"No of cols : ";
+	cin>>m;
+	for(int i=0;i<n;i++)
+	{
+		vector<int> v1;
+		for(int j=0;j<m;j++)
+		{
+			cin>>num;
+			v1.push_back(num);
+		}
+		a.push_back(v1);
+	}
 	cout << "Number of Islands is: "<< island(a); 
 } 
