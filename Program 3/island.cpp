@@ -4,11 +4,11 @@
 #include<vector>
 
 
-using namespace std;
+//using namespace std;
 class UnionFind
 { 
 	int n; 
-	vector<int> r,par;
+	std::vector<int> r,par;
 	public: 
 	UnionFind(int n) 
 	{ 
@@ -47,7 +47,7 @@ class UnionFind
 	} 
 }; 
 
-int island(vector<vector<int>>a) 
+int island(std::vector<std::vector<int>>a) 
 { 
 	int n = a.size(); 
 	int m = a[0].size(); 
@@ -103,26 +103,26 @@ int island(vector<vector<int>>a)
 
 int main(void) 
 { 
-	vector<vector<int>>a; //={{1, 1, 0, 0, 0}, 
+	std::vector<std::vector<int>>a; //={{1, 1, 0, 0, 0}, 
     //                                  {0, 1, 0, 0, 1}, 
     //                                  {1, 0, 0, 1, 1}, 
     //                                  {0, 0, 0, 0, 0}, 
     //                                  {1, 0, 1, 0, 1}}; 
 
 	int n,m,num;
-	cout<<"No of rows : ";
-	cin>>n;
-	cout<<"No of cols : ";
-	cin>>m;
+	std::cout<<"No of rows : ";
+	std::cin>>n;
+	std::cout<<"No of cols : ";
+	std::cin>>m;
 	for(int i=0;i<n;i++)
 	{
-		vector<int> v1;
+		std::vector<int> v1;
 		for(int j=0;j<m;j++)
 		{
-			cin>>num;
+			std::cin>>num;
 			v1.push_back(num);
 		}
 		a.push_back(v1);
 	}
-	cout << "Number of Islands is: "<< island(a); 
+	std::cout << "Number of Islands is: "<< island(a); 
 } 
